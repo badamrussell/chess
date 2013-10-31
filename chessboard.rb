@@ -1,6 +1,6 @@
 require_relative "basic_pieces"
 require_relative "errors"
-require 'debugger'
+#require 'debugger'
 
 class ChessBoard
   attr_accessor :board
@@ -150,7 +150,6 @@ class ChessBoard
 
   def promote_pawn(color, pos)
     klass = pawn_prompt
-    debugger
     self[pos] = klass.new(pos, self, color)
   end
 

@@ -102,6 +102,7 @@ class King < SteppingPiece
   def dup(new_board)
     new_piece = super
     new_piece.first_move = self.first_move
+    new_piece
   end
 
   def to_s
@@ -171,7 +172,6 @@ class Bishop < SlidingPiece
   def to_s
     self.color == :white ? "B" : 'b'
   end
-
 end
 
 class Pawn < Piece
@@ -189,7 +189,7 @@ class Pawn < Piece
     super(final)
 
     @first_move = false
-    row, col = self.pos
+    row = self.pos[0]
 
     if row == 0 || row == 7
       self.board.promote_pawn(self.color, self.pos)
@@ -241,8 +241,6 @@ class Pawn < Piece
   def valid_moves
     moves_ahead + moves_diag
   end
-
-
 
   def to_s
     self.color == :white ? "P" : "p"
