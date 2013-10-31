@@ -1,12 +1,19 @@
-require_relative "basic_pieces"
+require_relative "/piece/pieces"
+require_relative "pieces/king"
+require_relative "pieces/queen"
+require_relative "pieces/rook"
+require_relative "pieces/bishop"
+require_relative "pieces/knight"
+require_relative "pieces/pawn"
 require_relative "errors"
 #require 'debugger'
 
 class ChessBoard
   attr_accessor :board
 
-  def initialize
+  def initialize(default_setup = true)
     @board = (0...8).map { (0...8).map { nil } }
+    start_game if default_setup
   end
 
   def pieces(color)

@@ -90,13 +90,27 @@ class Game
 
 end
 
-if $PROGRAM_NAME == __FILE__
-  game = Game.new
+
+def en_passant_setup_test(game)
+  game.chess_board.move!([1,0],[4,0])
+  game.chess_board.move!([1,3],[4,3])
+  game.chess_board.move!([1,7],[4,7])
+
+  game.chess_board.move!([6,1],[4,1])
+  game.chess_board.move!([6,4],[4,4])
+end
+
+def pawn_promotion_test(game)
   game.chess_board.add_piece(Pawn.new([6,0], game.chess_board, :white))
   game.chess_board.add_piece(King.new([1,1], game.chess_board, :white))
-  game.chess_board.add_piece(King.new([1,4],game.chess_board,:black))
-  #game.chess_board.add_piece(Rook.new([1,4],game.chess_board,:white))
+  game.chess_board.add_piece(King.new([1,4],game.chess_board, :black))
+  game.chess_board.add_piece(Rook.new([1,4],game.chess_board,:white))
+end
+
+if $PROGRAM_NAME == __FILE__
+  game = Game.new
+
+  en_passant_setup_test(game)
+
   game.play_game
-
-
 end
