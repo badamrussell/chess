@@ -1,12 +1,18 @@
 Chess
 =====
+####Ruby
 
 A playable chess game from your terminal!
 
 
-##Implemented Features
-======================
+###Implemented Features
++ Custom Error messages
++ Validates Moves
++ Checkmate
++ Castling
++ En Passant
 
-
-##Planned Features
-==================
+###Planned Features
++ AI
++ styling and color
++ Draws
